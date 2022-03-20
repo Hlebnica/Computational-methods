@@ -9,7 +9,7 @@ from sympy.abc import x
 
 
 def kantorovich_check(func, _x, _x0):
-    b = abs(1 / func.subs(_x, _x0))
+    b = abs(1 / diff(func, _x).subs(_x, _x0))
     n = abs(func.subs(_x, _x0) / diff(func, _x).subs(_x, _x0))
     k = abs(diff(func, _x, 2).subs(_x, _x0))
     h = b * n * k
