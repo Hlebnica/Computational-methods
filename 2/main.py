@@ -18,7 +18,7 @@ def kantorovich_check(func, _x, _x0):
 
 
 def newton_formula(func, _x, _x0):
-    exp = 0.0001
+    exp = 0.000001
     x_n = _x0
     max_iteration = 100
     k = 0
@@ -33,8 +33,8 @@ def newton_formula(func, _x, _x0):
 
 
 def check(newton_formula_root):
-    answer = newton_formula_root ** 4 - 10001.01 * newton_formula_root ** 3 - \
-             9800.01 * newton_formula_root ** 2 - 999901 * newton_formula_root + 10000
+    answer = abs(newton_formula_root ** 4 - 10001.01 * newton_formula_root ** 3 - \
+                 9800.01 * newton_formula_root ** 2 - 999901 * newton_formula_root + 10000)
 
     return answer
 
