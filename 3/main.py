@@ -41,7 +41,7 @@ def iterative_method(x_0, y_0, reduce_y, reduce_x):
     exp = 0.0001
     x_n = x_0
     y_n = y_0
-    
+
     pass
 
 
