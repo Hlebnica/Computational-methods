@@ -6,7 +6,7 @@ from sympy.abc import x, y
 # x - cos(y) = 3
 
 # Используя метод простой итерации решить систему
-# уравнений с точностью до 0.001. Корни отделить графически. .subs(x, x_0)
+# уравнений с точностью до 0.001. Корни отделить графически.
 
 reduced_y = cos(x - 1) + y - 0.5
 reduced_x = x - cos(y) - 3
@@ -59,6 +59,15 @@ def iterative_method(x_0, y_0, func_y, func_x):
     return x_n, y_n
 
 
-convergence_condition(x0, y0, reduced_y, reduced_x)
+def check(func_y, func_x, iterative_method_result):
+    x_n = iterative_method_result[0]
+    y_n = iterative_method_result[1]
+    check_1 = func_y.subs([(x, x_n), (y, y_n)])
+    check_2 = func_x.subs([(x, x_n), (y, y_n)])
+    print('cos(x - 1) + y - 0.5 =', check_1)
+    print('x - cos(y) - 3 = ', check_2)
 
+
+convergence_condition(x0, y0, reduced_y, reduced_x)
 print(iterative_method(x0, y0, reduced_y, reduced_x))
+check(reduced_y, reduced_x, iterative_method(x0, y0, reduced_y, reduced_x))
