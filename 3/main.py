@@ -11,7 +11,7 @@ from sympy.abc import x, y
 reduced_y = cos(x - 1) + y - 0.5
 reduced_x = x - cos(y) - 3
 
-x0 = 3.34
+x0 = 3.33
 y0 = 1.19
 
 
