@@ -1,18 +1,26 @@
-from sympy import cos, diff, symbols
+from sympy import cos, diff, symbols, acos, sqrt
 from sympy.abc import x, y
 
 # Вариант 2
 # cos(x-1) + y = 0.5
+
+# cos(x-1) = 0.5 - y
+# arccos(0.5 - y) = x - 1
+# x = arccos(0,5 - y) + 1
+
 # x - cos(y) = 3
+
+# cos(y) = x - 3
+# y =  arccos(x-3)
 
 # Используя метод простой итерации решить систему
 # уравнений с точностью до 0.001. Корни отделить графически.
 
-reduced_y = cos(x - 1) + y - 0.5
-reduced_x = x - cos(y) - 3
+reduced_y = sqrt(4 - x ** 2)
+reduced_x = sqrt(y)
 
-x0 = 3.33
-y0 = 1.19
+x0 = 1.23
+y0 = 1.4
 
 
 def convergence_condition(x_0, y_0, func_y, func_x):  # Проверка сходимости
@@ -26,12 +34,12 @@ def convergence_condition(x_0, y_0, func_y, func_x):  # Проверка схо�
     if max(partial_derivative_red_y_x, partial_derivative_red_y_y, partial_derivative_red_x_x,
            partial_derivative_red_x_y) <= 1:
         print("Метод сходится")
-        # print(partial_derivative_red_y_x, "\n", partial_derivative_red_y_y, "\n", partial_derivative_red_x_x, "\n",
-        #       partial_derivative_red_x_y)
+        print(partial_derivative_red_y_x, "\n", partial_derivative_red_y_y, "\n", partial_derivative_red_x_x, "\n",
+              partial_derivative_red_x_y)
     else:
         print("Метод не сходится")
-        # print(partial_derivative_red_y_x, "\n", partial_derivative_red_y_y, "\n", partial_derivative_red_x_x, "\n",
-        #       partial_derivative_red_x_y)
+        print(partial_derivative_red_y_x, "\n", partial_derivative_red_y_y, "\n", partial_derivative_red_x_x, "\n",
+              partial_derivative_red_x_y)
 
 
 def iterative_method(x_0, y_0, func_y, func_x):
