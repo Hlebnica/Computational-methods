@@ -11,11 +11,28 @@ x_ = 3.75
 
 
 def main_formula(arr_x_, arr_f_x_, x__):
-    w_x = (x - arr_x_[len(arr_x_)])
-    for i in reversed(arr_x_):
-        w_x *= (x - arr_x_[i+1])
+    w_x = (x - arr_x_[0])
+
+    n = 0  # указатель на текущий arr_x
+    w_x_k = (x - arr_x_[n])
+
+    for i in range(len(arr_x_) - 1):
+        if arr_x_[i] - arr_x_[n] == 0:
+            pass
+        else:
+            print(arr_x_[i])
+            print(arr_x_[i + 1])
+            print(arr_x_[n])
+
+            w_x_k *= (arr_x_[n] - arr_x_[i])
+    w_x_k *= (arr_x_[n] - arr_x_[len(arr_x_)-1])
+    print(w_x_k)
+
+    for i in range(len(arr_x_) - 1):
+        w_x *= (x - arr_x_[i + 1])
         print(w_x)
-    return True
+
+    return w_x
 
 
-main_formula(arr_x, arr_f_x, x_)
+print(main_formula(arr_x, arr_f_x, x_))
