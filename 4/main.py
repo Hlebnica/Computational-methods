@@ -1,40 +1,27 @@
-from sympy import diff, symbols
-from sympy.abc import x, y
-
 # X   | 2,0   | 2,3   | 2,5   | 3,0   | 3,5   | 3,8   | 4,0   |
 # f(x)| 5,848 | 6,127 | 6,300 | 6,694 | 7,047 | 7,243 | 7,368 |
 # x_ = 3.75
 
-arr_x = [2.0, 2.3, 2.5, 3.0, 3.5, 3.8, 4.0]
-arr_f_x = [5.848, 6.127, 6.300, 6.694, 7.047, 7.243, 7.368]
-x_ = 3.75
+
+def main_formula(points, x_value):
+    value = 0
+    for DOTS in points:
+        omega = 1
+        for point_u in points:
+            if point_u != DOTS:
+                omega = omega * (x_value - point_u[0])
+
+        d_omega = 1
+        for point_d in points:
+            if point_d != DOTS:
+                d_omega = d_omega * (DOTS[0] - point_d[0])
+        value = value + (DOTS[1] * omega) / d_omega
+    return value
 
 
-def main_formula(arr_x_, arr_f_x_, x__):
-    w_x = (x - arr_x_[0])
+if __name__ == '__main__':
+    dots = [[2, 5.848], [2.3, 6.127], [2.5, 6.300], [3.0, 6.694], [3.5, 7.047], [3.8, 7.243], [4.0, 7.368]]
+    x_ = 3.75
 
-    j = 0  # указатель на текущий arr_x
-    w_x_k = (x - arr_x_[j])
-    w_x_k_arr = []
+    print('Полученное значение = ', main_formula(dots, x_), f'в X = {x_}')
 
-    for n in range(len(arr_x_)):
-        for i in range(len(arr_x_) - 1):
-            if arr_x_[i] - arr_x_[n] == 0:
-                pass
-            else:
-                w_x_k *= (arr_x_[n] - arr_x_[i])
-        w_x_k *= (arr_x_[n] - arr_x_[len(arr_x_) - 1])
-        w_x_k_arr.append(w_x_k)
-        if n < len(arr_f_x)-1:
-            w_x_k = (x - arr_x_[n+1])
-
-    print(w_x_k_arr)
-
-    for i in range(len(arr_x_) - 1):
-        w_x *= (x - arr_x_[i + 1])
-        print(w_x)
-
-    return True
-
-
-print(main_formula(arr_x, arr_f_x, x_))
