@@ -24,8 +24,7 @@ def func(x):  # сюда вставить это же значение, тако
 
 
 def true_integral(upper_limit_, lower_limit_, function):  # Вывод интеграла с точным значением
-    print(upper_limit_)
-    print(f'|\n|{function}dx = {integral[0]}\n|\n{lower_limit_}')
+    print(f'{upper_limit_}\n|\n|{function}dx = {integral[0]}\n|\n{lower_limit_}')
 
 
 def rectangle_method(func_, lower_limit_, upper_limit_, h_, n_):  # Формула с методом прямоугольников
