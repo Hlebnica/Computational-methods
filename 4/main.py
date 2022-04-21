@@ -10,7 +10,6 @@ def main_formula(points, x_value):
         for point_u in points:
             if point_u != DOTS:
                 omega = omega * (x_value - point_u[0])
-
         d_omega = 1
         for point_d in points:
             if point_d != DOTS:
@@ -19,9 +18,8 @@ def main_formula(points, x_value):
     return value
 
 
-if __name__ == '__main__':
-    dots = [[2, 5.848], [2.3, 6.127], [2.5, 6.300], [3.0, 6.694], [3.5, 7.047], [3.8, 7.243], [4.0, 7.368]]
-    x_ = 3.75
+dots = [[2, 5.848], [2.3, 6.127], [2.5, 6.300], [3.0, 6.694], [3.5, 7.047], [3.8, 7.243], [4.0, 7.368]]
+x_ = 3.5
 
-    print('Полученное значение = ', main_formula(dots, x_), f'в X = {x_}')
+print('Полученное значение = ', main_formula(dots, x_), f'в X = {x_}')
 
